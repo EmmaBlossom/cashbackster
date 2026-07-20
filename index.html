@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Кэшбэкстер — выгодные кэшбэк-акции банков</title>
+  <meta name="description" content="Свежие кэшбэк-акции банков и магазинов в одном месте. Находите выгодные предложения, сравнивайте условия и экономьте на покупках.">
+  <meta name="theme-color" content="#102a26">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://cashbackster.ru/">
+
+  <meta property="og:title" content="Кэшбэкстер — больше выгоды от каждой покупки">
+  <meta property="og:description" content="Кэшбэк-акции банков и магазинов в одном удобном каталоге.">
+  <meta property="og:url" content="https://cashbackster.ru/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+
+  <style>
+    :root {
+      --page: #f4f6f3;
+      --surface: #ffffff;
+      --surface-soft: #eef3ef;
+      --ink: #15231f;
+      --muted: #65736e;
+      --line: #dfe6e2;
+      --brand: #0d7c66;
+      --brand-dark: #095c4c;
+      --brand-soft: #dff2eb;
+      --gold: #d7aa45;
+      --gold-soft: #fbf2da;
+      --danger: #c74a4a;
+      --shadow-sm: 0 8px 24px rgba(20, 42, 36, .06);
+      --shadow-md: 0 18px 50px rgba(20, 42, 36, .12);
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 8% -10%, rgba(13, 124, 102, .10), transparent 32%),
+        radial-gradient(circle at 95% 10%, rgba(215, 170, 69, .10), transparent 25%),
+        var(--page);
+      color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(223, 230, 226, .85);
+      background: rgba(244, 246, 243, .86);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      font-size: 21px;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: #102a26;
+      font-size: 21px;
+      font-weight: 900;
+      background:
+        linear-gradient(145deg, #f7df92 0%, #d6a43c 48%, #f4d779 100%);
+      border: 2px solid rgba(255,255,255,.72);
+      box-shadow:
+        0 5px 14px rgba(139, 99, 17, .22),
+        inset 0 0 0 2px rgba(111, 77, 14, .18);
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(67, 49, 12, .32);
+      border-radius: inherit;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 650;
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+
+    .header-link:hover {
+      color: var(--ink);
+      background: rgba(255,255,255,.75);
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 750;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(13, 124, 102, .22);
+    }
+
+    .button-primary:hover {
+      background: var(--brand-dark);
+      box-shadow: 0 12px 28px rgba(13, 124, 102, .26);
+    }
+
+    .button-secondary {
+      color: var(--ink);
+      background: var(--surface-soft);
+    }
+
+    .button-ghost {
+      min-height: 40px;
+      padding-inline: 12px;
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .button-ghost:hover {
+      background: var(--surface-soft);
+      color: var(--ink);
+    }
+
+    .hero {
+      padding: 68px 0 34px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 390px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
+      gap: 42px;
+      align-items: center;
+      padding: clamp(34px, 6vw, 72px);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(120deg, rgba(9, 40, 34, .98), rgba(12, 83, 69, .96));
+      box-shadow: var(--shadow-md);
+      color: #fff;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      width: 420px;
+      height: 420px;
+      right: -150px;
+      top: -210px;
+      background: radial-gradient(circle, rgba(247, 223, 146, .28), transparent 68%);
+    }
+
+    .hero-card::after {
+      width: 280px;
+      height: 280px;
+      left: 48%;
+      bottom: -220px;
+      background: radial-gradient(circle, rgba(255,255,255,.16), transparent 68%);
+    }
+
+    .hero-copy,
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #9fe4ca;
+      box-shadow: 0 0 0 5px rgba(159, 228, 202, .12);
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 6.5vw, 76px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    .hero h1 span {
+      color: #f3d678;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin: 24px 0 30px;
+      color: rgba(255,255,255,.72);
+      font-size: clamp(17px, 2vw, 20px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero .button-primary {
+      background: #f3d678;
+      color: #18322c;
+      box-shadow: 0 12px 30px rgba(8, 24, 20, .22);
+    }
+
+    .hero .button-primary:hover {
+      background: #f7df92;
+    }
+
+    .hero .button-secondary {
+      color: #fff;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .hero-visual {
+      display: grid;
+      place-items: center;
+    }
+
+    .coin-stack {
+      position: relative;
+      width: min(100%, 330px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .coin {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,.62);
+      background: linear-gradient(145deg, #f8e59f, #c9932d 52%, #f5d778);
+      box-shadow:
+        0 30px 55px rgba(0,0,0,.28),
+        inset 0 0 0 8px rgba(114, 78, 12, .16);
+    }
+
+    .coin-main {
+      width: 228px;
+      height: 228px;
+      z-index: 3;
+      color: #18352e;
+      font-size: 92px;
+      font-weight: 900;
+      transform: rotate(-7deg);
+    }
+
+    .coin-main::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: 50%;
+      border: 2px solid rgba(70, 48, 10, .28);
+    }
+
+    .coin-back {
+      width: 190px;
+      height: 190px;
+      left: 10px;
+      bottom: 15px;
+      z-index: 1;
+      transform: rotate(-24deg);
+      opacity: .85;
+    }
+
+    .coin-small {
+      width: 115px;
+      height: 115px;
+      right: 0;
+      top: 6px;
+      z-index: 2;
+      transform: rotate(16deg);
+      color: #17352d;
+      font-size: 48px;
+      font-weight: 900;
+    }
+
+    .spark {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 0 20px rgba(255,255,255,.62);
+    }
+
+    .spark-one {
+      width: 8px;
+      height: 8px;
+      top: 10%;
+      left: 17%;
+    }
+
+    .spark-two {
+      width: 5px;
+      height: 5px;
+      right: 11%;
+      bottom: 23%;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .trust-item {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.76);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-item strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 18px;
+      letter-spacing: -.025em;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .catalog {
+      padding: 48px 0 80px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+
+    .section-heading p {
+      max-width: 560px;
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .filters {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: minmax(250px, 1.4fr) repeat(3, minmax(150px, .7fr));
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid rgba(223, 230, 226, .9);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .field {
+      position: relative;
+      min-width: 0;
+    }
+
+    .field label {
+      position: absolute;
+      top: 8px;
+      left: 14px;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      height: 58px;
+      padding: 22px 42px 6px 14px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      outline: none;
+      color: var(--ink);
+      background: var(--surface-soft);
+      appearance: none;
+      transition: border .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: rgba(13, 124, 102, .48);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(13, 124, 102, .09);
+    }
+
+    .field-icon {
+      position: absolute;
+      right: 14px;
+      bottom: 16px;
+      width: 20px;
+      height: 20px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .bank-filter {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 4px;
+    }
+
+    .bank-filter-title {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .bank-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .bank-chip {
+      position: relative;
+    }
+
+    .bank-chip input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .bank-chip span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: border .18s ease, background .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .bank-chip span::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--chip-color, var(--brand));
+    }
+
+    .bank-chip input:checked + span {
+      border-color: var(--brand);
+      background: var(--brand);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .bank-chip input:focus-visible + span {
+      outline: 3px solid rgba(13, 124, 102, .18);
+      outline-offset: 2px;
+    }
+
+    .catalog-toolbar {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 2px 0;
+    }
+
+    .results-count {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .results-count strong {
+      color: var(--ink);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sort-select {
+      min-height: 40px;
+      padding: 0 34px 0 12px;
+      border: 0;
+      border-radius: 10px;
+      outline: none;
+      color: var(--ink);
+      background:
+        linear-gradient(45deg, transparent 50%, var(--muted) 50%) calc(100% - 16px) 17px / 5px 5px no-repeat,
+        linear-gradient(135deg, var(--muted) 50%, transparent 50%) calc(100% - 11px) 17px / 5px 5px no-repeat,
+        var(--surface-soft);
+      appearance: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .offer-card {
+      position: relative;
+      min-width: 0;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      padding: 22px;
+      border: 1px solid rgba(223, 230, 226, .95);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: 0 8px 28px rgba(21, 35, 31, .05);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform .22s ease, box-shadow .22s ease, border .22s ease;
+    }
+
+    .offer-card::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -90px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: var(--card-accent-soft, var(--brand-soft));
+      transition: transform .25s ease;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(13, 124, 102, .28);
+      box-shadow: 0 18px 44px rgba(21, 35, 31, .10);
+    }
+
+    .offer-card:hover::after {
+      transform: scale(1.18);
+    }
+
+    .offer-card:focus-visible {
+      outline: 3px solid rgba(13, 124, 102, .2);
+      outline-offset: 3px;
+    }
+
+    .card-top,
+    .card-main,
+    .card-footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .bank-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .bank-emblem {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 9px;
+      color: var(--bank-ink, #fff);
+      background: var(--bank-color, var(--brand));
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+
+    .offer-type {
+      max-width: 48%;
+      overflow: hidden;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: var(--type-ink, var(--brand-dark));
+      background: var(--card-accent-soft, var(--brand-soft));
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .card-main {
+      flex: 1;
+    }
+
+    .brand-title {
+      margin: 0 0 6px;
+      overflow-wrap: anywhere;
+      font-size: 23px;
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+
+    .brand-description {
+      min-height: 42px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cashback-value {
+      margin: 24px 0 8px;
+      color: var(--brand-dark);
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      font-weight: 900;
+    }
+
+    .card-condition {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 28px;
+      padding-top: 17px;
+      border-top: 1px solid var(--line);
+    }
+
+    .meta-group {
+      min-width: 0;
+    }
+
+    .category {
+      display: block;
+      max-width: 205px;
+      overflow: hidden;
+      color: var(--ink);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .dates {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .round-arrow {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: var(--brand-dark);
+      background: var(--card-accent-soft, var(--brand-soft));
+      transition: transform .18s ease;
+    }
+
+    .offer-card:hover .round-arrow {
+      transform: translateX(3px);
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 58px 24px;
+      border: 1px dashed #cbd6d0;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.55);
+      text-align: center;
+    }
+
+    .empty-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 15px;
+      border-radius: 16px;
+      color: var(--brand-dark);
+      background: var(--brand-soft);
+      font-size: 25px;
+    }
+
+    .empty-state h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .empty-state p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .telegram-section {
+      padding: 0 0 88px;
+    }
+
+    .telegram-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 30px 34px;
+      border: 1px solid rgba(13, 124, 102, .15);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #e9f6f1, #f9f4e7);
+    }
+
+    .telegram-copy {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .telegram-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 17px;
+      background: #229ed9;
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(34, 158, 217, .22);
+    }
+
+    .telegram-copy h2 {
+      margin: 0 0 4px;
+      font-size: 23px;
+      letter-spacing: -.03em;
+    }
+
+    .telegram-copy p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .site-footer {
+      padding: 28px 0 38px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-note {
+      max-width: 650px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(7, 22, 18, .58);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal.is-open {
+      display: flex;
+    }
+
+    .modal-panel {
+      width: min(100%, 760px);
+      max-height: min(88vh, 900px);
+      overflow-y: auto;
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: 0 30px 90px rgba(0,0,0,.30);
+      animation: modalIn .22s ease both;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(10px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-top {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .modal-close {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 12px;
+      color: var(--muted);
+      background: var(--surface-soft);
+      cursor: pointer;
+    }
+
+    .modal-content {
+      padding: 28px;
+    }
+
+    .modal-hero {
+      padding: 24px;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(215, 170, 69, .18), transparent 34%),
+        var(--surface-soft);
+    }
+
+    .modal-brand {
+      margin: 16px 0 6px;
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .modal-cashback {
+      margin: 0;
+      color: var(--brand-dark);
+      font-size: 24px;
+      font-weight: 850;
+    }
+
+    .promo-box {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 20px;
+      padding: 14px 16px;
+      border: 1px solid rgba(215, 170, 69, .45);
+      border-radius: 14px;
+      background: var(--gold-soft);
+    }
+
+    .promo-box.is-visible {
+      display: flex;
+    }
+
+    .promo-label {
+      display: block;
+      margin-bottom: 3px;
+      color: #80651f;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .promo-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .copy-button {
+      min-height: 38px;
+      flex: 0 0 auto;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 10px;
+      color: #6e5416;
+      background: rgba(255,255,255,.68);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .detail-card {
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .detail-card-wide {
+      grid-column: 1 / -1;
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .detail-value {
+      margin: 0;
+      overflow-wrap: anywhere;
+      white-space: pre-line;
+      font-size: 14px;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .modal-actions .button {
+      flex: 1 1 220px;
+    }
+
+    .modal-warning {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 150;
+      transform: translate(-50%, 20px);
+      padding: 11px 15px;
+      border-radius: 11px;
+      background: #15231f;
+      color: #fff;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .toast.is-visible {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 980px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 24px), var(--container));
+      }
+
+      .site-header {
+        position: static;
+      }
+
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .brand {
+        font-size: 19px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .header-link {
+        display: none;
+      }
+
+      .header-actions .button {
+        min-height: 42px;
+        padding-inline: 13px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .hero-card {
+        min-height: auto;
+        padding: 32px 24px;
+        border-radius: 22px;
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 13vw, 58px);
+      }
+
+      .hero-description {
+        margin-top: 18px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .trust-row {
+        grid-template-columns: 1fr;
+      }
+
+      .catalog {
+        padding-top: 34px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .filters {
+        grid-template-columns: 1fr;
+        padding: 14px;
+      }
+
+      .bank-filter {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .catalog-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 2px;
+      }
+
+      .toolbar-actions {
+        width: 100%;
+      }
+
+      .sort-select {
+        flex: 1;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offer-card {
+        min-height: 300px;
+      }
+
+      .telegram-card {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 26px 22px;
+      }
+
+      .telegram-copy {
+        align-items: flex-start;
+      }
+
+      .telegram-card .button {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .modal {
+        align-items: flex-end;
+        padding: 0;
+      }
+
+      .modal-panel {
+        max-height: 94vh;
+        border-radius: 22px 22px 0 0;
+      }
+
+      .modal-content {
+        padding: 20px 16px 28px;
+      }
+
+      .modal-hero {
+        padding: 20px;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-card-wide {
+        grid-column: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+
+  <!-- Yandex.Metrika counter -->
+  <script>
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+    ym(102716660,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+  </script>
+  <!-- /Yandex.Metrika counter -->
+
+  <!-- Top.Mail.Ru counter -->
+  <script>
+    var _tmr=window._tmr||(window._tmr=[]);
+    _tmr.push({id:"3680123",type:"pageView",start:(new Date()).getTime()});
+    (function(d,w,id){
+      if(d.getElementById(id))return;
+      var ts=d.createElement("script");ts.type="text/javascript";ts.async=true;ts.id=id;
+      ts.src="https://top-fwz1.mail.ru/js/code.js";
+      var f=function(){var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(ts,s);};
+      if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",f,false);}else{f();}
+    })(document,window,"tmr-code");
+  </script>
+  <!-- /Top.Mail.Ru counter -->
+</head>
+
+<body>
+  <noscript>
+    <div>
+      <img src="https://mc.yandex.ru/watch/102716660" style="position:absolute;left:-9999px" alt="">
+      <img src="https://top-fwz1.mail.ru/counter?id=3680123;js=na" style="position:absolute;left:-9999px" alt="Top.Mail.Ru">
+    </div>
+  </noscript>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Кэшбэкстер — главная">
+        <span class="brand-mark" aria-hidden="true">К</span>
+        <span>Кэшбэкстер</span>
+      </a>
+
+      <nav class="header-actions" aria-label="Главная навигация">
+        <a class="header-link" href="#catalog">Акции</a>
+        <a class="header-link" href="#about">О проекте</a>
+        <a class="button button-primary" data-telegram-link href="https://t.me/cashbackster" target="_blank" rel="noopener noreferrer">
+          Telegram
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Выгодные предложения в одном месте
+            </div>
+
+            <h1>Получайте <span>больше</span> от каждой покупки</h1>
+            <p class="hero-description">
+              Сравнивайте кэшбэк и скидки от банков, находите подходящие акции и экономьте без долгого поиска по приложениям.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#catalog">
+                Смотреть акции
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a class="button button-secondary" data-telegram-link href="https://t.me/cashbackster" target="_blank" rel="noopener noreferrer">
+                Подписаться в Telegram
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="coin-stack">
+              <span class="spark spark-one"></span>
+              <span class="spark spark-two"></span>
+              <div class="coin coin-back"></div>
+              <div class="coin coin-small">%</div>
+              <div class="coin coin-main">К</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-row" id="about">
+          <div class="trust-item">
+            <strong>Все банки</strong>
+            <span>Предложения разных банков в едином каталоге</span>
+          </div>
+          <div class="trust-item">
+            <strong>Понятные условия</strong>
+            <span>Сроки, лимиты и правила без лишнего поиска</span>
+          </div>
+          <div class="trust-item">
+            <strong>Быстрый выбор</strong>
+            <span>Фильтры по банку, категории и размеру выгоды</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>Актуальные предложения</h2>
+            <p>Используйте фильтры или поиск по брендам, условиям и категориям.</p>
+          </div>
+        </div>
+
+        <div class="filters" aria-label="Фильтры каталога">
+          <div class="field">
+            <label for="search">Поиск</label>
+            <input type="search" id="search" placeholder="Например, доставка или ресторан" autocomplete="off">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+              <path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="field">
+            <label for="category-filter">Категория</label>
+            <select id="category-filter">
+              <option value="">Все категории</option>
+            </select>
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m7 10 5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="field">
+            <label for="brand-filter">Бренд</label>
+            <select id="brand-filter">
+              <option value="">Все бренды</option>
+            </select>
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m7 10 5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="field">
+            <label for="cashback-filter">Выгода</label>
+            <select id="cashback-filter">
+              <option value="">Любой размер</option>
+              <option value="10">от 10%</option>
+              <option value="20">от 20%</option>
+              <option value="30">от 30%</option>
+              <option value="50">от 50%</option>
+            </select>
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m7 10 5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="bank-filter">
+            <span class="bank-filter-title">Банк:</span>
+            <div class="bank-chips" id="bank-filter-checkboxes"></div>
+          </div>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="results-count" id="results-count" aria-live="polite"></div>
+
+          <div class="toolbar-actions">
+            <button class="button button-ghost" id="reset-filters" type="button">Сбросить</button>
+            <label class="sr-only" for="sort">Сортировка</label>
+            <select class="sort-select" id="sort">
+              <option value="default">Сначала рекомендуемые</option>
+              <option value="cashback-desc">Сначала больший процент</option>
+              <option value="brand-asc">По названию бренда</option>
+              <option value="bank-asc">По банку</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="cards-container" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="telegram-section">
+      <div class="container">
+        <div class="telegram-card">
+          <div class="telegram-copy">
+            <div class="telegram-icon" aria-hidden="true">
+              <svg width="29" height="29" viewBox="0 0 24 24" fill="none">
+                <path d="M21 4 9.8 20l-2-6.2L2 11.6 21 4Z" fill="currentColor"/>
+                <path d="m7.8 13.8 8.6-6.2-6.6 7.9" stroke="#229ed9" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Лучшие акции — в Telegram</h2>
+              <p>Подборки выгодных предложений и уведомления о новых кэшбэках.</p>
+            </div>
+          </div>
+
+          <a class="button button-primary" data-telegram-link href="https://t.me/cashbackster" target="_blank" rel="noopener noreferrer">
+            Перейти в канал
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="current-year"></span> Кэшбэкстер</div>
+      <div class="footer-note">
+        Информация носит справочный характер. Перед покупкой проверяйте актуальные условия акции и промокода в приложении или личном кабинете банка.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="details-modal" role="dialog" aria-modal="true" aria-labelledby="modal-brand">
+    <div class="modal-panel">
+      <div class="modal-top">
+        <div id="modal-bank-badge"></div>
+        <button class="modal-close" id="modal-close" type="button" aria-label="Закрыть">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-content">
+        <div class="modal-hero">
+          <span class="offer-type" id="modal-category"></span>
+          <h2 class="modal-brand" id="modal-brand"></h2>
+          <p class="modal-cashback" id="modal-cashback"></p>
+
+          <div class="promo-box" id="promo-box">
+            <div>
+              <span class="promo-label">Промокод</span>
+              <span class="promo-code" id="modal-promocode"></span>
+            </div>
+            <button class="copy-button" id="copy-promocode" type="button">Копировать</button>
+          </div>
+        </div>
+
+        <div class="details-grid" id="modal-details"></div>
+
+        <div class="modal-actions">
+          <a class="button button-primary" id="open-card-btn" href="#" target="_blank" rel="noopener noreferrer">
+            Открыть карту банка
+          </a>
+          <a class="button button-secondary" id="modal-site" href="#" target="_blank" rel="noopener noreferrer">
+            Сайт партнёра
+          </a>
+        </div>
+
+        <p class="modal-warning">
+          Актуальность предложения, лимиты и возможность участия уточняйте перед покупкой в личном кабинете банка.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Промокод скопирован</div>
+
+  <script>
+    const TELEGRAM_URL = "https://t.me/cashbackster";
+
+    const jsonData = [
+  {
+    "Банк": "Альфа-Банк",
+    "Карта": "Альфа Карта",
+    "Категория": "Еда и продукты",
+    "Компания/бренд": "КуулКлевер",
+    "Размер кэшбека/скидки": "Кэшбэк до 10%",
+    "Условия (если указаны)": "На первую покупку в период акции до 16.12.2025",
+    "Короткое описание компании/бренда": "Продукты",
+    "Промокод (если указан)": "",
+    "Даты проведения акции": "17.11.2025 - 16.12.2025",
+    "Как получить кэшбэк": "Оплатите первую покупку на кассе партнёра\nКартой Альфа-Банка\nЖдите кэшбэк\nОн придет 10 числа следующего месяца",
+    "Дополнительная информация (если есть)": "",
+    "Макс. кэшбек/скидка в руб": "300 ₽",
+    "Сайт": "https://www.coolclever.ru/",
+    "О партнере": "КуулКлевер — это 7 собственных заводов по производству натуральных продуктов высокого качества, бакалея и эксклюзивные напитки из 25 стран мира. Всё можно найти в более чем 270 магазинах в Москве и Нижнем Новгороде или заказать с круглосуточной доставкой!"
+  },
+{
+    "Банк": "Альфа-Банк",
+    "Карта": "Альфа Карта",
+    "Категория": "Еда и продукты",
+    "Компания/бренд": "Интернет-магазин ГЛОБУС",
+    "Размер кэшбека/скидки": "Кэшбэк до 12%",
+    "Условия (если указаны)": "На все покупки до 15.12.2025",
+    "Короткое описание компании/бренда": "Сервис доставки товаров",
+    "Промокод (если указан)": "",
+    "Даты проведения акции": "01.11.2025 - 15.12.2025",
+    "Как получить кэшбэк": "Оплачивайте покупки в интернет-магазине партнёра\nКартой Альфа-Банка\nЖдите кэшбэк\nОн придёт 10 числа следующего месяца",
+    "Дополнительная информация (если есть)": "— Кэшбэк до 12% за покупки от 4500 ₽ в выходные дни: 8 и 9 ноября, 13 и 14 декабря\n\n— Кэшбэк до 10% за покупки от 6000 ₽ в остальные дни",
+    "Макс. кэшбек/скидка в руб": "1500 ₽ за  месяц",
+    "Сайт": "https://online.globus.ru/",
+    "О партнере": "ГЛОБУС — это сервис доставки из более чем 52000 товаров: вкусная и свежая еда, товары для животных, для дома и многое другое."
+  },
+  {
+    "Банк": "Альфа-Банк",
+    "Карта": "Альфа Карта",
+    "Категория": "Еда и продукты",
+    "Компания/бренд": "Шефмаркет",
+    "Размер кэшбека/скидки": "Кэшбэк до 35%",
+    "Условия (если указаны)": "На первый заказ до 31.12.2025",
+    "Короткое описание компании/бренда": "Сервис доставки продуктов",
+    "Промокод (если указан)": "",
+    "Даты проведения акции": "01.10.2025 - 31.12.2025",
+    "Как получить кэшбэк": "Оплатите первый заказ от 2600 ₽ в сервисе партнёра\nКартой Альфа-Банка\nЖдите кэшбэк\nОн придет 10 числа следующего месяца",
+    "Дополнительная информация (если есть)": "",
+    "Макс. кэшбек/скидка в руб": "800 ₽ за месяц",
+    "Сайт": "https://www.chefmarket.ru/",
+    "О партнере": "Шефмаркет — это сервис доставки продуктов, созданный для того, чтобы вы сами приготовили изысканные и вкусные блюда по лучшим рецептам профессиональных шеф-поваров."
+  },
+{
+    "Банк": "ВТБ",
+    "Карта": "Дебетовая карта для жизни",
+    "Категория": "Услуги и сервисы",
+    "Компания/бренд": "Яндекс Драйв",
+    "Размер кэшбека/скидки": "Скидка 15%",
+    "Условия (если указаны)": "",
+    "Короткое описание компании/бренда": "Каршеринг",
+    "Промокод (если указан)": "",
+    "Даты проведения акции": "с 20.01.2025 по 31.12.2025",
+    "Как получить кэшбэк": "Забронируйте каршеринг в Яндекс Драйве, оплатите его картой ВТБ — скидка применится автоматически.",
+    "Дополнительная информация (если есть)": "Скидки в Яндекс Драйв предоставляются новым клиентам, клиентам без оплат в сервисе в 2025 году и прочим клиентам, выбранных случайным образом организатором.\nДействует для тарифов: «Фикс», «Минуты» и «Часы и дни».",
+    "Макс. кэшбек/скидка в руб": "не указано",
+    "Сайт": "https://yandex.ru/drive/",
+    "О партнере": ""
+  },
+  {
+    "Банк": "ВТБ",
+    "Карта": "Дебетовая карта для жизни",
+    "Категория": "Услуги и сервисы",
+    "Компания/бренд": "Яндекс Такси",
+    "Размер кэшбека/скидки": "Скидка 50%",
+    "Условия (если указаны)": "",
+    "Короткое описание компании/бренда": "Такси",
+    "Промокод (если указан)": "",
+    "Даты проведения акции": "с 01.11.2025  по 30.11.2025",
+    "Как получить кэшбэк": "Закажите поездку в Яндекс Такси, оплатите ее картой ВТБ — скидка применится автоматически.",
+    "Дополнительная информация (если есть)": "Скидки в Яндекс Такси предоставляются новым клиентам, клиентам без оплат в сервисе и прочим клиентам, выбранных случайным образом организатором.\nДействует для тарифов: «Эконом», «Комфорт», «Комфорт +», «Вместе» и «Детский».",
+    "Макс. кэшбек/скидка в руб": "1 500 ₽",
+    "Сайт": "https://go.yandex/ru_ru/doc/vtb/sp_nov25",
+    "О партнере": ""
+  },
+  {
+    "Банк": "ВТБ",
+    "Карта": "Дебетовая карта для жизни",
+    "Категория": "Услуги и сервисы",
+    "Компания/бренд": "Бродвей Москва",
+    "Размер кэшбека/скидки": "Кешбэк 12%",
+    "Условия (если указаны)": "Предложение действует на все покупки билетов по карте ВТБ на сайте Бродвей Москва.",
+    "Короткое описание компании/бренда": "Мюзиклы",
+    "Промокод (если указан)": "",
+    "Даты проведения акции": "С 01.07.2025 по 31.12.2025",
+    "Как получить кэшбэк": "Оплатить билеты картой ВТБ на сайте Бродвей Москва.",
+    "Дополнительная информация (если есть)": "Акция не распространяется на заказы с применением промокода.",
+    "Макс. кэшбек/скидка в руб": "2 000 ₽",
+    "Сайт": "https://broadway-moscow.ru/",
+    "О партнере": "Бродвей Москва — это команда профессионалов с огромным опытом постановки в России масштабных мюзиклов (Mamma Mia!, «Призрак Оперы», «Шахматы», «Ничего не бойся, я с тобой»).\nСейчас у зрителей есть возможность посмотреть мюзиклы «Последняя сказка», «МАММА МИМО!», «Первое свидание» и «День влюблённых», а также музыкальную комедию «Элементарно, Хадсон!»."
+  },
+{
+    "Банк": "Т-Банк",
+    "Карта": "Black",
+    "Категория": "Еда и продукты",
+    "Компания/бренд": "Тануки",
+    "Размер кэшбека/скидки": "Скидка 20%",
+    "Условия (если указаны)": "На 1 покупку онлайн от 1 590 ₽",
+    "Короткое описание компании/бренда": "Японский ресторан",
+    "Промокод (если указан)": "TTD1Z3WS9F3",
+    "Даты проведения акции": "С 1 по 31 декабря",
+    "Как получить кэшбэк": "Оформите заказ на сумму от 1590 ₽ на сайте или в приложении партнера\nПеред оплатой введите промокод\nОплатите покупку любой картой Т‑Банка на сайте или в приложении партнера",
+    "Дополнительная информация (если есть)": "Промокод дает скидку 20% на первый заказ на сайте и в приложении партнера на сумму от 1 590 рублей при оплате любой картой Т-Банка. Акция действует только для новых клиентов партнера на заказ с доставкой.\n\nСкидка действует от текущей цены и не суммируется с другими спецпредложениями и программой лояльности, не распространяется на самовывоз.",
+    "Макс. кэшбек/скидка в руб": "не указано",
+    "Сайт": "https://tanukifamily.ru",
+    "О партнере": "Тануки — японские рестораны с доставкой. Классические японские суши и сашими, авторские рецепты паназиатской кухни. Вегетарианское и детское меню. Доставка от 45 минут."
+  },
+  {
+    "Банк": "Т-Банк",
+    "Карта": "Black",
+    "Категория": "Еда и продукты",
+    "Компания/бренд": "Додо",
+    "Размер кэшбека/скидки": "Скидка 25%",
+    "Условия (если указаны)": "На 1 покупку",
+    "Короткое описание компании/бренда": "Пиццерия",
+    "Промокод (если указан)": "2I8GR7QC1B",
+    "Даты проведения акции": "С 1 по 31 декабря",
+    "Как получить кэшбэк": "Оформите заказ в ресторане, на сайте или в приложении партнера\n\nПеред оплатой введите промокод или покажите его кассиру\n\nОплатите покупку любой картой Т‑Банка",
+    "Дополнительная информация (если есть)": "Промокод дает скидку 20% и действует на первую покупку для новых клиентов в ресторане, на сайте или в приложении партнера. Акция распространяется на заказы с доставкой и самовывозом\n\nСкидка действует от текущей цены и не суммируется с комбо, другими акциями, программой лояльности и не распространяется на другие предложения партнера",
+    "Макс. кэшбек/скидка в руб": "не указано",
+    "Сайт": "https://dodopizza.ru",
+    "О партнере": "Додо Пицца — пиццерии. Пицца на традиционном и тонком тесте, закуски, салаты, десерты и напитки. Доставка в течение получаса."
+  },
+  {
+    "Банк": "Т-Банк",
+    "Карта": "Black",
+    "Категория": "Еда и продукты",
+    "Компания/бренд": "Вкусно — и точка",
+    "Размер кэшбека/скидки": "Кэшбэк 25%",
+    "Условия (если указаны)": "На 1 покупку онлайн",
+    "Короткое описание компании/бренда": "Рестораны быстрого питания",
+    "Промокод (если указан)": "",
+    "Даты проведения акции": "С 17 ноября по 7 декабря",
+    "Как получить кэшбэк": "Скачайте или откройте приложение по кнопке «К покупкам» и оформите заказ\n\nОплатите покупку любой картой Т-Банка\n\nКэшбэк рассчитаем в течение 25 дней, начислим в ближайшую выписку после расчета бонуса",
+    "Дополнительная информация (если есть)": "Акция действует на первую покупку для клиентов, у которых ранее не было заказов через приложение «Вкусно — и точка».",
+    "Макс. кэшбек/скидка в руб": 200,
+    "Сайт": "https://vkusnoitochka.ru/",
+    "О партнере": "Предприятия быстрого питания «Вкусно — и точка». Комбо, бургеры, салаты, картофель фри, крылышки, наггетсы, соусы, десерты, мороженое и напитки."
+  }
+              ];
+
+    const bankLinks = {
+      "Альфа-Банк": "https://alfa.me/4Zz28B",
+      "ВТБ": "https://vtb.ru/l/ab0138h7",
+      "Т-Банк": "https://www.tbank.ru/baf/AUDLSGhqV4u"
+    };
+
+    const bankStyles = {
+      "Альфа-Банк": { short: "А", color: "#ef3124", ink: "#ffffff", soft: "#fde9e7" },
+      "ВТБ": { short: "ВТБ", color: "#0a59c7", ink: "#ffffff", soft: "#e8f0fb" },
+      "Т-Банк": { short: "Т", color: "#ffdd2d", ink: "#1e1e1e", soft: "#fff8d0" }
+    };
+
+    const elements = {
+      cards: document.getElementById("cards-container"),
+      count: document.getElementById("results-count"),
+      search: document.getElementById("search"),
+      banks: document.getElementById("bank-filter-checkboxes"),
+      category: document.getElementById("category-filter"),
+      brand: document.getElementById("brand-filter"),
+      cashback: document.getElementById("cashback-filter"),
+      sort: document.getElementById("sort"),
+      reset: document.getElementById("reset-filters"),
+      modal: document.getElementById("details-modal"),
+      modalClose: document.getElementById("modal-close"),
+      modalBankBadge: document.getElementById("modal-bank-badge"),
+      modalBrand: document.getElementById("modal-brand"),
+      modalCategory: document.getElementById("modal-category"),
+      modalCashback: document.getElementById("modal-cashback"),
+      modalDetails: document.getElementById("modal-details"),
+      promoBox: document.getElementById("promo-box"),
+      promoCode: document.getElementById("modal-promocode"),
+      copyPromo: document.getElementById("copy-promocode"),
+      openCard: document.getElementById("open-card-btn"),
+      site: document.getElementById("modal-site"),
+      toast: document.getElementById("toast")
+    };
+
+    const state = {
+      search: "",
+      banks: [],
+      category: "",
+      brand: "",
+      minCashback: 0,
+      sort: "default"
+    };
+
+    let lastFocusedElement = null;
+
+    function normalize(value) {
+      return String(value ?? "")
+        .replace(/\u00a0/g, " ")
+        .trim();
+    }
+
+    function escapeHtml(value) {
+      return normalize(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function getPercent(value) {
+      const values = normalize(value).match(/\d+(?:[.,]\d+)?/g);
+      if (!values) return 0;
+      return Math.max(...values.map(number => Number(number.replace(",", "."))));
+    }
+
+    function getBankStyle(bank) {
+      return bankStyles[bank] || {
+        short: normalize(bank).slice(0, 2).toUpperCase(),
+        color: "#0d7c66",
+        ink: "#ffffff",
+        soft: "#dff2eb"
+      };
+    }
+
+    function getOfferType(value) {
+      const text = normalize(value).toLowerCase();
+      if (text.includes("скид")) return "Скидка";
+      if (text.includes("кэш") || text.includes("кеш")) return "Кэшбэк";
+      return "Предложение";
+    }
+
+    function pluralizeOffers(number) {
+      const lastTwo = number % 100;
+      const last = number % 10;
+      if (lastTwo >= 11 && lastTwo <= 14) return "предложений";
+      if (last === 1) return "предложение";
+      if (last >= 2 && last <= 4) return "предложения";
+      return "предложений";
+    }
+
+    function bankBadgeMarkup(bank) {
+      const style = getBankStyle(bank);
+      return `
+        <span class="bank-badge">
+          <span class="bank-emblem" style="--bank-color:${style.color};--bank-ink:${style.ink}">${escapeHtml(style.short)}</span>
+          <span>${escapeHtml(bank)}</span>
+        </span>
+      `;
+    }
+
+    function uniqueValues(key) {
+      return [...new Set(jsonData.map(item => normalize(item[key])).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, "ru"));
+    }
+
+    function populateSelect(select, values, emptyLabel) {
+      const current = select.value;
+      select.innerHTML = `<option value="">${emptyLabel}</option>`;
+      values.forEach(value => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        select.append(option);
+      });
+      if ([...select.options].some(option => option.value === current)) {
+        select.value = current;
+      }
+    }
+
+    function populateFilters() {
+      populateSelect(elements.category, uniqueValues("Категория"), "Все категории");
+      populateSelect(elements.brand, uniqueValues("Компания/бренд"), "Все бренды");
+
+      elements.banks.innerHTML = "";
+      uniqueValues("Банк").forEach(bank => {
+        const style = getBankStyle(bank);
+        const label = document.createElement("label");
+        label.className = "bank-chip";
+        label.style.setProperty("--chip-color", style.color);
+        label.innerHTML = `
+          <input type="checkbox" value="${escapeHtml(bank)}">
+          <span>${escapeHtml(bank)}</span>
+        `;
+        elements.banks.append(label);
+      });
+    }
+
+    function readFilters() {
+      state.search = normalize(elements.search.value).toLowerCase();
+      state.category = elements.category.value;
+      state.brand = elements.brand.value;
+      state.minCashback = Number(elements.cashback.value || 0);
+      state.sort = elements.sort.value;
+      state.banks = [...elements.banks.querySelectorAll('input:checked')].map(input => input.value);
+    }
+
+    function getFilteredData() {
+      readFilters();
+
+      let result = jsonData.filter(item => {
+        const bank = normalize(item["Банк"]);
+        const category = normalize(item["Категория"]);
+        const brand = normalize(item["Компания/бренд"]);
+        const cashback = getPercent(item["Размер кэшбека/скидки"]);
+
+        if (state.banks.length && !state.banks.includes(bank)) return false;
+        if (state.category && category !== state.category) return false;
+        if (state.brand && brand !== state.brand) return false;
+        if (state.minCashback && cashback < state.minCashback) return false;
+
+        if (state.search) {
+          const haystack = Object.values(item).map(normalize).join(" ").toLowerCase();
+          if (!haystack.includes(state.search)) return false;
+        }
+
+        return true;
+      });
+
+      if (state.sort === "cashback-desc") {
+        result.sort((a, b) => getPercent(b["Размер кэшбека/скидки"]) - getPercent(a["Размер кэшбека/скидки"]));
+      } else if (state.sort === "brand-asc") {
+        result.sort((a, b) => normalize(a["Компания/бренд"]).localeCompare(normalize(b["Компания/бренд"]), "ru"));
+      } else if (state.sort === "bank-asc") {
+        result.sort((a, b) => normalize(a["Банк"]).localeCompare(normalize(b["Банк"]), "ru"));
+      }
+
+      return result;
+    }
+
+    function renderCards() {
+      const data = getFilteredData();
+      elements.count.innerHTML = `Найдено <strong>${data.length}</strong> ${pluralizeOffers(data.length)}`;
+
+      if (!data.length) {
+        elements.cards.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon" aria-hidden="true">⌕</div>
+            <h3>Подходящих акций не найдено</h3>
+            <p>Попробуйте изменить запрос или сбросить часть фильтров.</p>
+          </div>
+        `;
+        return;
+      }
+
+      elements.cards.innerHTML = data.map((item, index) => {
+        const bank = normalize(item["Банк"]);
+        const style = getBankStyle(bank);
+        const description = normalize(item["Короткое описание компании/бренда"]) || "Специальное предложение";
+        const condition = normalize(item["Условия (если указаны)"]) || "Подробные условия внутри";
+        const offerType = getOfferType(item["Размер кэшбека/скидки"]);
+
+        return `
+          <article
+            class="offer-card"
+            tabindex="0"
+            role="button"
+            aria-label="Подробнее об акции ${escapeHtml(item["Компания/бренд"])}"
+            data-index="${jsonData.indexOf(item)}"
+            style="--card-accent-soft:${style.soft}"
+          >
+            <div class="card-top">
+              ${bankBadgeMarkup(bank)}
+              <span class="offer-type">${offerType}</span>
+            </div>
+
+            <div class="card-main">
+              <h3 class="brand-title">${escapeHtml(item["Компания/бренд"])}</h3>
+              <p class="brand-description">${escapeHtml(description)}</p>
+              <div class="cashback-value">${escapeHtml(item["Размер кэшбека/скидки"])}</div>
+              <p class="card-condition">${escapeHtml(condition)}</p>
+            </div>
+
+            <div class="card-footer">
+              <div class="meta-group">
+                <span class="category">${escapeHtml(item["Категория"])}</span>
+                <span class="dates">${escapeHtml(item["Даты проведения акции"])}</span>
+              </div>
+              <span class="round-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function detailMarkup(label, value, wide = false) {
+      const cleanValue = normalize(value);
+      if (!cleanValue) return "";
+      return `
+        <div class="detail-card ${wide ? "detail-card-wide" : ""}">
+          <span class="detail-label">${escapeHtml(label)}</span>
+          <p class="detail-value">${escapeHtml(cleanValue)}</p>
+        </div>
+      `;
+    }
+
+    function openModal(item, trigger) {
+      lastFocusedElement = trigger || document.activeElement;
+
+      const bank = normalize(item["Банк"]);
+      elements.modalBankBadge.innerHTML = bankBadgeMarkup(bank);
+      elements.modalBrand.textContent = normalize(item["Компания/бренд"]) || "Предложение";
+      elements.modalCategory.textContent = normalize(item["Категория"]) || "Акция";
+      elements.modalCashback.textContent = normalize(item["Размер кэшбека/скидки"]) || "";
+
+      const promo = normalize(item["Промокод (если указан)"]);
+      elements.promoCode.textContent = promo;
+      elements.promoBox.classList.toggle("is-visible", Boolean(promo));
+
+      elements.modalDetails.innerHTML = [
+        detailMarkup("Карта", item["Карта"]),
+        detailMarkup("Срок действия", item["Даты проведения акции"]),
+        detailMarkup("Максимальная выгода", item["Макс. кэшбек/скидка в руб"]),
+        detailMarkup("Условия", item["Условия (если указаны)"], true),
+        detailMarkup("Как получить", item["Как получить кэшбэк"], true),
+        detailMarkup("Дополнительная информация", item["Дополнительная информация (если есть)"], true),
+        detailMarkup("О партнёре", item["О партнере"], true)
+      ].join("");
+
+      const bankLink = bankLinks[bank];
+      elements.openCard.hidden = !bankLink;
+      if (bankLink) {
+        elements.openCard.href = bankLink;
+        elements.openCard.textContent = `Открыть карту ${bank}`;
+      }
+
+      const partnerSite = normalize(item["Сайт"]);
+      elements.site.hidden = !partnerSite;
+      if (partnerSite) elements.site.href = partnerSite;
+
+      elements.modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      elements.modalClose.focus();
+    }
+
+    function closeModal() {
+      elements.modal.classList.remove("is-open");
+      document.body.style.overflow = "";
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }
+
+    function resetFilters() {
+      elements.search.value = "";
+      elements.category.value = "";
+      elements.brand.value = "";
+      elements.cashback.value = "";
+      elements.sort.value = "default";
+      elements.banks.querySelectorAll("input").forEach(input => input.checked = false);
+      renderCards();
+    }
+
+    let toastTimer;
+    function showToast(message) {
+      elements.toast.textContent = message;
+      elements.toast.classList.add("is-visible");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => elements.toast.classList.remove("is-visible"), 1800);
+    }
+
+    document.querySelectorAll("[data-telegram-link]").forEach(link => {
+      link.href = TELEGRAM_URL;
+    });
+
+    [elements.search, elements.category, elements.brand, elements.cashback, elements.sort]
+      .forEach(control => control.addEventListener("input", renderCards));
+
+    elements.banks.addEventListener("change", renderCards);
+    elements.reset.addEventListener("click", resetFilters);
+
+    elements.cards.addEventListener("click", event => {
+      const card = event.target.closest(".offer-card");
+      if (!card) return;
+      openModal(jsonData[Number(card.dataset.index)], card);
+    });
+
+    elements.cards.addEventListener("keydown", event => {
+      const card = event.target.closest(".offer-card");
+      if (!card || !["Enter", " "].includes(event.key)) return;
+      event.preventDefault();
+      openModal(jsonData[Number(card.dataset.index)], card);
+    });
+
+    elements.modalClose.addEventListener("click", closeModal);
+
+    elements.modal.addEventListener("click", event => {
+      if (event.target === elements.modal) closeModal();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && elements.modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+
+    elements.copyPromo.addEventListener("click", async () => {
+      const code = elements.promoCode.textContent;
+      try {
+        await navigator.clipboard.writeText(code);
+        showToast("Промокод скопирован");
+      } catch {
+        const input = document.createElement("textarea");
+        input.value = code;
+        document.body.append(input);
+        input.select();
+        document.execCommand("copy");
+        input.remove();
+        showToast("Промокод скопирован");
+      }
+    });
+
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    populateFilters();
+    renderCards();
+  </script>
+</body>
+</html>
